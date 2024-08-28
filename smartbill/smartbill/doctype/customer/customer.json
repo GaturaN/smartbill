@@ -86,7 +86,7 @@
    "fieldname": "identification_type",
    "fieldtype": "Select",
    "label": "Identification Type",
-   "options": "National ID\nPassport",
+   "options": "Select\nNational ID\nPassport",
    "reqd": 1
   },
   {
@@ -112,7 +112,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 20:02:35.052385",
+ "modified": "2024-08-28 20:14:32.940488",
  "modified_by": "Administrator",
  "module": "Smartbill",
  "name": "Customer",
