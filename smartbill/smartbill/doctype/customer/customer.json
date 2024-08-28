@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-28 19:54:01.796964",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_details_section",
+  "full_name",
+  "first_name",
+  "middle_name_optional",
+  "last_name",
+  "mobile_number",
+  "email",
+  "date_of_birth",
+  "age",
+  "column_break_csib",
+  "identification_type",
+  "national_id",
+  "passport_number",
+  "passport_photo",
+  "kra_pin"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "middle_name_optional",
+   "fieldtype": "Data",
+   "label": "Middle Name (Optional)"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Mobile Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_csib",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "identification_type",
+   "fieldtype": "Select",
+   "label": "Identification Type",
+   "options": "National ID\nPassport",
+   "reqd": 1
+  },
+  {
+   "fieldname": "national_id",
+   "fieldtype": "Int",
+   "label": "National ID"
+  },
+  {
+   "fieldname": "passport_number",
+   "fieldtype": "Data",
+   "label": "Passport Number"
+  },
+  {
+   "fieldname": "passport_photo",
+   "fieldtype": "Attach Image",
+   "label": "Passport Photo"
+  },
+  {
+   "fieldname": "kra_pin",
+   "fieldtype": "Data",
+   "label": "KRA Pin"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-28 20:02:35.052385",
+ "modified_by": "Administrator",
+ "module": "Smartbill",
+ "name": "Customer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
