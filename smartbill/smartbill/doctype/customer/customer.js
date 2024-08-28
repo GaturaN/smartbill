@@ -32,10 +32,12 @@ frappe.ui.form.on("Customer", {
       let id = frm.doc.national_id;
       // check if it is not a number
       if (isNaN(id)) {
+        frm.set_value("national_id", "");
         frappe.throw("National ID is not valid");
       }
       // check if length is correct
       if (id.length !== 8) {
+        frm.set_value("national_id", "");
         frappe.throw("National ID is not valid");
       }
     }
@@ -47,18 +49,17 @@ frappe.ui.form.on("Customer", {
         frm.doc.passport_number.length < 6 ||
         frm.doc.passport_number.length > 9
       ) {
+        frm.set_value("passport_number", "");
         frappe.throw("Passport number is not valid");
       }
     }
-  },
-
-  email(frm) {
     // check if email is valid
     if (frm.doc.email) {
-      if (!frm.doc.email.includes("@")) {
-        frappe.msgprint("Email is not valid");
+        if (!frm.doc.email.includes("@")) {
+          frm.set_value("email","");
+          frappe.throw("Email is not valid");
+        }
       }
-    }
   },
 
   date_of_birth(frm) {
@@ -93,7 +94,9 @@ frappe.ui.form.on("Customer", {
     // Check if age > 18
     if (frm.doc.age) {
       if (parseInt(frm.doc.age) < 18) {
+        frm.set_value("date_of_birth", "");
         frappe.throw("Must be 18 or older");
+       
       }
     }
   },
