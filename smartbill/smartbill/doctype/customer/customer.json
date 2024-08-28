@@ -1,8 +1,10 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:C-{YYYY}-{####}",
  "creation": "2024-08-28 19:54:01.796964",
  "doctype": "DocType",
+ "documentation": "https://imported-badge-17e.notion.site/SmartBill-e4891e51bfc348d69833d595346c9ffa?pvs=4",
  "engine": "InnoDB",
  "field_order": [
   "customer_details_section",
@@ -91,18 +93,21 @@
   },
   {
    "fieldname": "national_id",
-   "fieldtype": "Int",
-   "label": "National ID"
+   "fieldtype": "Data",
+   "label": "National ID",
+   "unique": 1
   },
   {
    "fieldname": "passport_number",
    "fieldtype": "Data",
-   "label": "Passport Number"
+   "label": "Passport Number",
+   "unique": 1
   },
   {
    "fieldname": "passport_photo",
    "fieldtype": "Attach Image",
-   "label": "Passport Photo"
+   "label": "Passport Photo",
+   "reqd": 1
   },
   {
    "fieldname": "kra_pin",
@@ -110,12 +115,14 @@
    "label": "KRA Pin"
   }
  ],
+ "image_field": "passport_photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-28 20:14:32.940488",
+ "modified": "2024-08-28 22:20:26.068415",
  "modified_by": "Administrator",
  "module": "Smartbill",
  "name": "Customer",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -131,7 +138,9 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "full_name"
 }
