@@ -7,20 +7,21 @@ frappe.ui.form.on("Customer", {
     frm.toggle_display(
       ["national_id", "passport_number"],
       frm.doc.identification_type !== "Select"
-    );
-    // set full name
-    if (frm.doc.middle_name_optional) {
-      frm.set_value(
-        "full_name",
-        frm.doc.first_name +
-          " " +
-          frm.doc.middle_name_optional +
-          " " +
-          frm.doc.last_name
-      );
-    } else {
-      frm.set_value("full_name", frm.doc.first_name + " " + frm.doc.last_name);
-    }
+    ); 
+    // This has been moved to server side
+    // // set full name
+    // if (frm.doc.middle_name_optional) {
+    //   frm.set_value(
+    //     "full_name",
+    //     frm.doc.first_name +
+    //       " " +
+    //       frm.doc.middle_name_optional +
+    //       " " +
+    //       frm.doc.last_name
+    //   );
+    // } else {
+    //   frm.set_value("full_name", frm.doc.first_name + " " + frm.doc.last_name);
+    // }
   },
 
   validate(frm) {
@@ -55,17 +56,17 @@ frappe.ui.form.on("Customer", {
     }
     // check if email is valid
     if (frm.doc.email) {
-        if (!frm.doc.email.includes("@")) {
-          frm.set_value("email","");
-          frappe.throw("Email is not valid");
-        }
+      if (!frm.doc.email.includes("@")) {
+        frm.set_value("email", "");
+        frappe.throw("Email is not valid");
       }
+    }
   },
 
   date_of_birth(frm) {
     // check if date of birth is valid
     if (frm.doc.date_of_birth) {
-      if (Date.parse(frm.doc.date_of_birth) > Date.now()) {
+      if (Date.parse(frm.doc.date_of_birth) > Date.now()){
         frappe.msgprint("Date of birth is not valid");
       }
       // calculate age in years, months and days
@@ -96,7 +97,6 @@ frappe.ui.form.on("Customer", {
       if (parseInt(frm.doc.age) < 18) {
         frm.set_value("date_of_birth", "");
         frappe.throw("Must be 18 or older");
-       
       }
     }
   },
