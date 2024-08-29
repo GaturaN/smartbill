@@ -3,6 +3,7 @@
 
 import frappe
 import re
+import string
 from datetime import date, datetime, timedelta
 from frappe.model.document import Document
 
@@ -16,13 +17,15 @@ class Customer(Document):
                 set_age(self)
                 validate_age(self)
                 validate_verification_type(self)
+                validate_id_num(self)
+                validate_passport(self)
         
         
 # set full_name
 def set_full_name(self):
-        first_name = self.first_name.strip().title()
-        middle_name = self.middle_name_optional.strip().title() if self.middle_name_optional else ""
-        last_name = self.last_name.strip().title()
+        first_name = string.capwords(self.first_name.strip())
+        middle_name = string.capwords(self.middle_name_optional.strip()) if self.middle_name_optional else ""
+        last_name = string.capwords(self.last_name.strip())
         
         # set all names to be title 
         self.first_name = first_name
@@ -89,7 +92,7 @@ def validate_age(self):
 
 # validate verification_type != "Select"
 def validate_verification_type(self):
-    ver = self.verification_type
+    ver = self.identification_type
     if ver == "Select":
         frappe.throw("Please select a verification type")
 
@@ -98,7 +101,16 @@ def validate_verification_type(self):
         if not self.national_id:
             frappe.throw("National ID is required")
             
-        # check if national id is int and valid
+        
+            
+    # verification_type == Passport => set passport_number to mandatory
+    if ver == "Passport":
+        if not self.passport_number:
+            frappe.throw("Passport number is required")    
+            
+      
+                
+def validate_id_num(self):
         if self.national_id:
             id = self.national_id
             # check if it is not a number
@@ -107,14 +119,11 @@ def validate_verification_type(self):
             # check if length is correct
             if len(id) != 8:
                 frappe.throw("National ID is not valid")
-            
-    # verification_type == Passport => set passport_number to mandatory
-    if ver == "Passport":
-        if not self.passport_number:
-            frappe.throw("Passport number is required")    
-            
-        # check if passport number is valid
-        # Should not be more than 9 or less than 6
+    
+
+
+def validate_passport(self):
+        # check if passport number is valid => should not be more than 9 or less than 6
         if self.passport_number:
             if len(self.passport_number) < 6 or len(self.passport_number) > 9:
                 frappe.throw("Passport number is not valid")
