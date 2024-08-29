@@ -15,6 +15,7 @@ class Customer(Document):
                 validate_date_of_birth(self)
                 set_age(self)
                 validate_age(self)
+                validate_verification_type(self)
         
         
 # set full_name
@@ -86,4 +87,34 @@ def validate_age(self):
             frappe.throw("Must be 18 or older")
             
 
+# validate verification_type != "Select"
+def validate_verification_type(self):
+    ver = self.verification_type
+    if ver == "Select":
+        frappe.throw("Please select a verification type")
 
+    # verification_type == National ID => set national_id to mandatory
+    if ver == "National ID":
+        if not self.national_id:
+            frappe.throw("National ID is required")
+            
+        # check if national id is int and valid
+        if self.national_id:
+            id = self.national_id
+            # check if it is not a number
+            if not id.isnumeric():
+                frappe.throw("National ID is not valid")
+            # check if length is correct
+            if len(id) != 8:
+                frappe.throw("National ID is not valid")
+            
+    # verification_type == Passport => set passport_number to mandatory
+    if ver == "Passport":
+        if not self.passport_number:
+            frappe.throw("Passport number is required")    
+            
+        # check if passport number is valid
+        # Should not be more than 9 or less than 6
+        if self.passport_number:
+            if len(self.passport_number) < 6 or len(self.passport_number) > 9:
+                frappe.throw("Passport number is not valid")
