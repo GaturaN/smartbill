@@ -3,6 +3,7 @@
 
 import frappe
 import re
+import string
 from datetime import date, datetime, timedelta
 from frappe.model.document import Document
 
@@ -22,9 +23,9 @@ class Customer(Document):
         
 # set full_name
 def set_full_name(self):
-        first_name = self.first_name.strip().title()
-        middle_name = self.middle_name_optional.strip().title() if self.middle_name_optional else ""
-        last_name = self.last_name.strip().title()
+        first_name = string.capwords(self.first_name.strip())
+        middle_name = string.capwords(self.middle_name_optional.strip()) if self.middle_name_optional else ""
+        last_name = string.capwords(self.last_name.strip())
         
         # set all names to be title 
         self.first_name = first_name
