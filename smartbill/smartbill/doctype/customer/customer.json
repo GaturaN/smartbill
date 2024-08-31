@@ -117,8 +117,13 @@
  ],
  "image_field": "passport_photo",
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-08-28 22:20:26.068415",
+ "links": [
+  {
+   "link_doctype": "Bill",
+   "link_fieldname": "customer"
+  }
+ ],
+ "modified": "2024-08-31 20:40:26.814560",
  "modified_by": "Administrator",
  "module": "Smartbill",
  "name": "Customer",

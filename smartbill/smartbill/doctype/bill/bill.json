@@ -1,0 +1,197 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-31 19:37:51.099446",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_v0zx",
+  "amended_from",
+  "customer_details_section",
+  "customer",
+  "custoer_age",
+  "column_break_kjjs",
+  "customer_email",
+  "customer_phone_number",
+  "bill_details_section",
+  "type",
+  "recurring_model",
+  "purpose",
+  "column_break_qrnu",
+  "amount",
+  "due_date",
+  "bill_financing_plan_section",
+  "financing_plan",
+  "column_break_hhcr",
+  "deposit_amount",
+  "receiver_of_fnds_details_section",
+  "mpesa_number",
+  "receivers_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_v0zx",
+   "fieldtype": "Section Break",
+   "label": "Ammended From Section"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Bill",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.email",
+   "fieldname": "customer_email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer Email",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fetch_from": "customer.age",
+   "fieldname": "custoer_age",
+   "fieldtype": "Data",
+   "label": "Custoer Age",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_kjjs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer.mobile_number",
+   "fieldname": "customer_phone_number",
+   "fieldtype": "Data",
+   "label": "Customer Phone Number",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "bill_details_section",
+   "fieldtype": "Section Break",
+   "label": "Bill Details"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Select:\nOne-Time Payment\nRecurring Payment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "recurring_model",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Recurring Model",
+   "options": "Select:\nWeekly\nMonthly\nYearly"
+  },
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Link",
+   "label": "Purpose",
+   "options": "Bill Purpose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qrnu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Amount due for the bill.",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount ",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bill_financing_plan_section",
+   "fieldtype": "Section Break",
+   "label": "Bill Financing Plan"
+  },
+  {
+   "fieldname": "financing_plan",
+   "fieldtype": "Select",
+   "label": "Financing Plan",
+   "options": "Once\nDaily\nWeekly\nMonthly\nYearly",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hhcr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "deposit_amount",
+   "fieldtype": "Currency",
+   "label": "Deposit Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "receiver_of_fnds_details_section",
+   "fieldtype": "Section Break",
+   "label": "Receiver of Fnds Details"
+  },
+  {
+   "fieldname": "mpesa_number",
+   "fieldtype": "Phone",
+   "label": "MPESA Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "receivers_name",
+   "fieldtype": "Data",
+   "label": "Receiver's Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-08-31 20:30:32.061194",
+ "modified_by": "Administrator",
+ "module": "Smartbill",
+ "name": "Bill",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
