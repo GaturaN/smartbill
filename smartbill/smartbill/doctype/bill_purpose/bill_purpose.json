@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:purpose",
+ "autoname": "format:PP-{###}",
  "creation": "2024-08-31 20:32:43.330233",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -25,11 +25,11 @@
    "link_fieldname": "purpose"
   }
  ],
- "modified": "2024-08-31 20:38:32.037712",
+ "modified": "2024-09-01 08:34:27.216595",
  "modified_by": "Administrator",
  "module": "Smartbill",
  "name": "Bill Purpose",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

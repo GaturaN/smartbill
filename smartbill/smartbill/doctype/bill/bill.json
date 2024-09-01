@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{purpose}-{####}",
  "creation": "2024-08-31 19:37:51.099446",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -95,7 +96,7 @@
    "fieldname": "type",
    "fieldtype": "Select",
    "label": "Type",
-   "options": "Select:\nOne-Time Payment\nRecurring Payment",
+   "options": "\nOne-Time Payment\nRecurring Payment",
    "reqd": 1
   },
   {
@@ -103,7 +104,7 @@
    "fieldtype": "Select",
    "hidden": 1,
    "label": "Recurring Model",
-   "options": "Select:\nWeekly\nMonthly\nYearly"
+   "options": "\nWeekly\nMonthly\nYearly"
   },
   {
    "fieldname": "purpose",
@@ -138,7 +139,7 @@
    "fieldname": "financing_plan",
    "fieldtype": "Select",
    "label": "Financing Plan",
-   "options": "Once\nDaily\nWeekly\nMonthly\nYearly",
+   "options": "\nOnce\nDaily\nWeekly\nMonthly\nYearly",
    "reqd": 1
   },
   {
@@ -171,10 +172,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-31 20:30:32.061194",
+ "modified": "2024-09-01 09:04:43.594395",
  "modified_by": "Administrator",
  "module": "Smartbill",
  "name": "Bill",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
