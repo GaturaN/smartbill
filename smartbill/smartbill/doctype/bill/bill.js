@@ -2,9 +2,11 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Bill", {
-	// refresh(frm) {
-
-	// },
+	refresh(frm) {
+        if (frm.doc.type === "Recurring Payment") {
+            frm.toggle_display(["recurring_model"], true);
+        }
+	},
     validate(frm){
         // amount should not be less than 100
         if (frm.doc.amount < 100) {

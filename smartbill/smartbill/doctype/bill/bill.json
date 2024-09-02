@@ -139,7 +139,7 @@
    "fieldname": "financing_plan",
    "fieldtype": "Select",
    "label": "Financing Plan",
-   "options": "\nOnce\nDaily\nWeekly\nMonthly\nYearly",
+   "options": "\nOnce\nDaily\nWeekly\nMonthly",
    "reqd": 1
   },
   {
@@ -172,7 +172,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-01 09:04:43.594395",
+ "modified": "2024-09-01 11:52:22.135129",
  "modified_by": "Administrator",
  "module": "Smartbill",
  "name": "Bill",
